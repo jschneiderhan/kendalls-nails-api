@@ -4,14 +4,12 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/jschneiderhan/kendalls-nails-api/api"
 )
 
-func testingHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "hello world")
-}
-
 func main() {
-	http.HandleFunc("/testing", testingHandler)
+	http.HandleFunc("/testing", handler.Handler)
 
 	port := ":8080"
 	fmt.Printf("Server starting on port %s\n", port)
